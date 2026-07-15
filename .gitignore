@@ -1,0 +1,8 @@
+# SSH private keys (public keys are fine)
+home/.ssh/id_*
+
+# Common sensitive files
+*.pem
+*.key
+.env
+.env.*
