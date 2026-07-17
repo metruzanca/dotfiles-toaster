@@ -38,6 +38,8 @@ if [[ $- == *i* ]]; then
   glow ~/.config/cheatsheet.md
 fi
 
+export EDITOR="hx"
+
 # Auto-start zellij in server mode (no graphical session)
 if [[ $- == *i* ]] && ! systemctl is-active --quiet graphical.target 2>/dev/null && command -v zellij &>/dev/null && [[ -z "$ZELLIJ" ]]; then
   exec zellij
