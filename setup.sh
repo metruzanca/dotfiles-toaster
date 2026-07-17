@@ -26,7 +26,7 @@ echo ""
 # --- Symlink home/ into ~/ ---
 
 echo "==> Stowing home/"
-stow -v -d "$DOTFILES_DIR" -t "$HOME" --no-folding home
+stow -v -d "$DOTFILES_DIR" -t "$HOME" --no-folding --adopt home
 
 echo ""
 echo "==> Home symlinks complete"
