@@ -28,9 +28,7 @@ cd ~/dotfiles
 ./setup.sh
 ```
 
-This symlinks `home/` files into `~/` and installs brew packages. Feature-specific setup scripts are listed at the end — run them as needed.
-
-### Individual features
+This uses [GNU Stow](https://www.gnu.org/software/stow/) to symlink `home/` into `~/`. Stow is installed automatically via Homebrew if missing. Feature-specific setup scripts are listed at the end — run them as needed.
 
 ```bash
 ./feat/server-boot/setup.sh
