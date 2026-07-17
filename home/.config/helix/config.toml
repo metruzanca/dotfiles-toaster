@@ -1,6 +1,8 @@
 theme = "term16_dark"
 
 [editor]
-soft-wrap = true
 auto-format = true
-idle-timeout = 500
+idle-timeout = 0
+
+[editor.soft-wrap]
+enable = true

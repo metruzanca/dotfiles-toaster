@@ -1,5 +1,6 @@
 # SSH private keys (public keys are fine)
 home/.ssh/id_*
+!home/.ssh/id_*.pub
 
 # Common sensitive files
 *.pem
