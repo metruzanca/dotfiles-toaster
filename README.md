@@ -25,9 +25,12 @@ docs/       Misc documentation
 ```bash
 git clone git@github.com:metruzanca/dotfiles-toaster.git ~/dotfiles
 cd ~/dotfiles
+./setup.sh
 ```
 
-### Server boot mode (GRUB dual-entry: desktop / terminal)
+This symlinks `home/` files into `~/` and installs brew packages. Feature-specific setup scripts are listed at the end — run them as needed.
+
+### Individual features
 
 ```bash
 ./feat/server-boot/setup.sh
