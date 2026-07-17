@@ -47,13 +47,19 @@ if [[ -f "$server_file" ]]; then
     echo "Server entry exists but kernel differs, recreating..."
 fi
 
-# Build the server entry
-{
-    # Title: replace "Aurora" with "Aurora Server"
-    awk '/^title /{sub(/^title /, ""); print "title Aurora Server (" $0 ")"; next} {print}' "$latest_desktop"
-    # Append systemd.unit=multi-user.target to options line
-    awk '/^options /{print $0 " systemd.unit=multi-user.target"; next} {print}' "$latest_desktop" | tail -n +2
-} > "$server_file"
+# Build the server entry: rename title and append multi-user.target to options
+awk '
+    /^title / {
+        sub(/^title /, "")
+        print "title Aurora Server (" $0 ")"
+        next
+    }
+    /^options / {
+        print $0 " systemd.unit=multi-user.target"
+        next
+    }
+    { print }
+' "$latest_desktop" > "$server_file"
 
 echo "Created server entry: $server_file"
 
