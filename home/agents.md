@@ -135,6 +135,11 @@ plasmashell --replace &
 flatpak info --show-location <app-id>
 ```
 
+## Agent Rules
+
+1. **Always use conventional commits** in git repositories. Format: `type(scope): description` where type is one of `feat`, `fix`, `docs`, `style`, `refactor`, `chore`, etc.
+2. **If making OS changes, add them to the dotfiles** so things can be reproduced. This includes systemd units, shell config, system scripts, and `/etc` modifications. Everything should be declarative and reproducible from the dotfiles repo.
+
 ## Restrictions
 
 - No `dnf` / `yum` — use `rpm-ostree`, `flatpak`, or `brew` instead.
