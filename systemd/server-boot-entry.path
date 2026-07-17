@@ -1,0 +1,8 @@
+[Unit]
+Description=Watch for new ostree BLS entries and create server variant
+
+[Path]
+DirectoryChanged=/boot/loader/entries
+
+[Install]
+WantedBy=paths.target

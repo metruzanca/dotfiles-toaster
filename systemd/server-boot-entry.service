@@ -1,0 +1,7 @@
+[Unit]
+Description=Create server boot entry for ostree deployment
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/create-server-boot-entry
