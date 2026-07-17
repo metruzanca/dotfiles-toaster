@@ -1,0 +1,7 @@
+theme = "onedarker"
+
+[editor]
+soft-wrap = true
+auto-format = true
+idle-timeout = 500
+true-color = true
