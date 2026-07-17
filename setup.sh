@@ -46,19 +46,26 @@ for f in "$HOME_DIR"/.config/*; do
     symlink "$f" "$HOME/.config/$name"
 done
 
-# .ssh files (authorized_keys, known_hosts, public keys)
+# .ssh files (authorized_keys, public keys)
+# Never symlink known_hosts, private keys, or agent sockets.
+# Also ensure ~/.ssh is a real directory (not a symlink to the repo).
+if [[ -L "$HOME/.ssh" ]]; then
+    echo "    WARNING: ~/.ssh is a symlink — removing it to prevent circular refs"
+    rm "$HOME/.ssh"
+fi
+mkdir -p "$HOME/.ssh"
+chmod 700 "$HOME/.ssh"
+
 for f in "$HOME_DIR"/.ssh/*; do
     [[ -e "$f" ]] || continue
     name="$(basename "$f")"
-    # Skip agent socket files, known_hosts (machine-specific), private keys
-    [[ "$name" == agent ]] && continue
+    [[ "$name" == "agent" ]] && continue
     [[ "$name" == "known_hosts" ]] && continue
     [[ "$name" == "known_hosts.old" ]] && continue
-    [[ "$name" == id_ed25519 ]] && continue
-    mkdir -p "$HOME/.ssh"
+    [[ "$name" == "id_ed25519" ]] && continue
+    [[ "$name" == *.bak ]] && continue
     symlink "$f" "$HOME/.ssh/$name"
 done
-chmod 700 "$HOME/.ssh" 2>/dev/null || true
 
 echo ""
 echo "==> Home symlinks complete"
