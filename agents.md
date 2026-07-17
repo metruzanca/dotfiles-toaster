@@ -26,6 +26,13 @@ dotfiles/
 
 ## Conventions
 
+### Preferred CLI Tools
+
+- **`glow`** — Markdown renderer. Use it to display README content, status summaries, and any markdown output in scripts and setup flows.
+- **`gum`** — Interactive prompts and styled output. Use `gum confirm` for user confirmations, `gum choose` for selections, `gum spin` for spinners, and `gum style` for formatted text.
+
+Prefer these over raw `echo`/`read` when writing setup scripts or interactive shell helpers. Both are available via Homebrew.
+
 ### Git
 
 - **Conventional commits**: `type(scope): description`
