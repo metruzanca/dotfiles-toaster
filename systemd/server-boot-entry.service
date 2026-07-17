@@ -1,7 +1,8 @@
 [Unit]
-Description=Create server boot entry for ostree deployment
+Description=Create server boot entry and regenerate grub.cfg for ostree deployment
 After=local-fs.target
 
 [Service]
 Type=oneshot
 ExecStart=/usr/local/bin/create-server-boot-entry
+ExecStartPost=/usr/bin/grub2-mkconfig -o /boot/grub2/grub.cfg

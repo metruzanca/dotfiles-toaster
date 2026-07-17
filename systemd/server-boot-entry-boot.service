@@ -1,8 +1,12 @@
 [Unit]
-Description=Ensure server boot entry exists at boot
+Description=Ensure server boot entry and grub.cfg exist at boot
 After=local-fs.target
 Before=multi-user.target
 
 [Service]
 Type=oneshot
 ExecStart=/usr/local/bin/create-server-boot-entry
+ExecStartPost=/usr/bin/grub2-mkconfig -o /boot/grub2/grub.cfg
+
+[Install]
+WantedBy=multi-user.target

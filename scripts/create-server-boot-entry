@@ -66,7 +66,7 @@ echo "Created server entry: $server_file"
 # Clean up orphaned server entries (no matching desktop entry for the same version)
 for stale in "$BLS_DIR"/ostree-*"$SERVER_SUFFIX.conf"; do
     [[ -f "$stale" ]] || continue
-    base="${stale%$SERVER_SUFFIX.conf}"
+    base="${stale%${SERVER_SUFFIX}.conf}.conf"
     if [[ ! -f "$base" ]]; then
         echo "Removing orphaned server entry: $stale"
         rm "$stale"
