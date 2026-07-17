@@ -50,8 +50,9 @@ done
 for f in "$HOME_DIR"/.ssh/*; do
     [[ -e "$f" ]] || continue
     name="$(basename "$f")"
-    # Skip agent socket files and private key dirs
+    # Skip agent socket files, known_hosts (machine-specific)
     [[ "$name" == agent ]] && continue
+    [[ "$name" == "known_hosts" ]] && continue
     [[ "$name" == "known_hosts.old" ]] && continue
     mkdir -p "$HOME/.ssh"
     symlink "$f" "$HOME/.ssh/$name"

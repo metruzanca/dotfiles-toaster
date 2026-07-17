@@ -1,0 +1,11 @@
+[Unit]
+Description=Disable Alt+Arrow TTY switching
+After=systemd-vconsole-setup.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/loadkeys /usr/local/share/keymaps/no-console-switch.map
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
