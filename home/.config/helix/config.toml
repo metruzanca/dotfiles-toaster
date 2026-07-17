@@ -1,7 +1,6 @@
-theme = "onedarker"
+theme = "term16_dark"
 
 [editor]
 soft-wrap = true
 auto-format = true
 idle-timeout = 500
-true-color = true

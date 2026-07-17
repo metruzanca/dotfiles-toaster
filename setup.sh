@@ -62,14 +62,6 @@ echo ""
 echo "==> Home symlinks complete"
 echo ""
 
-# --- Brew packages ---
-
-if command -v brew &>/dev/null; then
-    echo "==> Installing brew packages from Brewfile"
-    brew bundle --file="$DOTFILES_DIR/Brewfile" --no-lock
-    echo ""
-fi
-
 # --- Feature setup scripts ---
 
 echo "==> Checking feature setup scripts..."
