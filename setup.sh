@@ -34,14 +34,24 @@ echo ""
 
 # --- Feature setup scripts ---
 
-echo "==> Feature setup scripts:"
-echo ""
-
+features=()
 for setup in "$DOTFILES_DIR"/feat/*/setup.sh; do
     [[ -f "$setup" ]] || continue
-    feature="$(basename "$(dirname "$setup")")"
-    echo "  feat/$feature/setup.sh"
+    features+=("$setup")
 done
 
-echo ""
+if [[ ${#features[@]} -gt 0 ]]; then
+    if gum confirm "Run feature setup scripts?"; then
+        echo ""
+        for setup in "${features[@]}"; do
+            feature="$(basename "$(dirname "$setup")")"
+            if gum confirm "  Run feat/$feature/setup.sh?"; then
+                echo ""
+                bash "$setup"
+                echo ""
+            fi
+        done
+    fi
+fi
+
 echo "==> Done! Open a new terminal or run: source ~/.bashrc"
