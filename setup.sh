@@ -23,15 +23,6 @@ fi
 echo "==> Dotfiles: $DOTFILES_DIR"
 echo ""
 
-# --- Ensure ~/.ssh is a real directory (never a symlink to the repo) ---
-
-if [[ -L "$HOME/.ssh" ]]; then
-    echo "    Removing symlinked ~/.ssh to prevent circular refs"
-    rm "$HOME/.ssh"
-fi
-mkdir -p "$HOME/.ssh"
-chmod 700 "$HOME/.ssh"
-
 # --- Symlink home/ into ~/ ---
 
 echo "==> Stowing home/"
