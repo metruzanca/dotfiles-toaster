@@ -139,6 +139,7 @@ flatpak info --show-location <app-id>
 
 1. **Always use conventional commits** in git repositories. Format: `type(scope): description` where type is one of `feat`, `fix`, `docs`, `style`, `refactor`, `chore`, etc.
 2. **If making OS changes, add them to the dotfiles** so things can be reproduced. This includes systemd units, shell config, system scripts, and `/etc` modifications. Everything should be declarative and reproducible from the dotfiles repo.
+3. **Always push commits after making changes.** Do not leave unpushed work — we don't want to lose changes.
 
 ## Restrictions
 
